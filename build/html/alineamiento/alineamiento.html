@@ -1,0 +1,300 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Alineamiento múltiple y elección del mejor modelo de sustitución. &mdash; documentación de TAREA 1 - </title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/msmb.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../search.html"/>
+    <link rel="top" title="documentación de TAREA 1 - " href="../index.html"/>
+        <link rel="next" title="Construcción y análisis de árboles filogenéticos" href="../arboles/arboles.html"/>
+        <link rel="prev" title="Secuencias biológicas" href="../secuencias/secuencias.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> TAREA 1
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduccion/introduccion.html">Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../secuencias/secuencias.html">Secuencias biológicas</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Alineamiento múltiple y elección del mejor modelo de sustitución.</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#algoritmo-de-alineamiento-multiple-seleccionado">3.1 Algoritmo de alineamiento múltiple seleccionado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#alineamiento-multiple-obtenido">3.2 Alineamiento múltiple obtenido</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#eleccion-del-mejor-modelo-de-sustitucion-y-calculo-de-las-distancias-geneticas">3.3 Elección del mejor modelo de sustitución y cálculo de las distancias genéticas</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../arboles/arboles.html">Construcción y análisis de árboles filogenéticos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../conclusiones/conclusiones.html">Conclusiones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../referencias/referencias.html">Referencias</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">TAREA 1</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Alineamiento múltiple y elección del mejor modelo de sustitución.</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/alineamiento/alineamiento.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="alineamiento-multiple-y-eleccion-del-mejor-modelo-de-sustitucion">
+<h1>Alineamiento múltiple y elección del mejor modelo de sustitución.<a class="headerlink" href="#alineamiento-multiple-y-eleccion-del-mejor-modelo-de-sustitucion" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="algoritmo-de-alineamiento-multiple-seleccionado">
+<h2>3.1 Algoritmo de alineamiento múltiple seleccionado<a class="headerlink" href="#algoritmo-de-alineamiento-multiple-seleccionado" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>En este estudio estamos trabajando con secuencias de ADN por lo que vamos a trabajar con el algoritmo de <strong>ClustalW</strong>,al igual que los autores del artículo.</p>
+<p>El algoritmo empleado por este programa permite el alineamiento de secuencias homólogas de proteínas o nucleótidos. Primero calcula una matriz de distancias entre cada par de secuencias y posteriormente crea un árbol filogenético mediante el método de neighbor-joining que emplea como guía para generar el alineamiento global.</p>
+<p>Las secuencias más similares entre sí son las primeras en alinearse, y posteriormente se van alineando los grupos de secuencias más distantes,hasta conseguir el alineamiento global.</p>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Destacar que los autores del artículo emplean la interfaz CLUSTAL X para realizar el alineamiento,pero a efectos prácticos no supone ninguna diferencia.</p>
+</div>
+</div>
+<div class="section" id="alineamiento-multiple-obtenido">
+<h2>3.2 Alineamiento múltiple obtenido<a class="headerlink" href="#alineamiento-multiple-obtenido" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>El alineamiento de nucleótidos obtenidos para la determinación de la cepa a la que pertenecen las bacterias aisladas de los pacientes humanos se encuentra <a class="reference download internal" href="../_downloads/Parte1.masx" download=""><code class="xref download docutils literal notranslate"><span class="pre">aquí.</span></code></a></p>
+<p>Lo primero que llama la atención de este alineamiento es que existen grandes regiones <strong>no conservadas</strong> entre las distintas cepas, aunque también hay presencia de regiones bien conservadas entre las mismas.</p>
+<img alt="../_images/Alineamiento1ini.png" src="../_images/Alineamiento1ini.png" />
+<p>Las secuencias <em>Gilliam_isolate</em> y <em>Kato_isolate</em> presentan ambas una región inicial de 285 pb que no aparece en el resto de secuencias, incluyendo a la secuencia de referencia de NCBI.</p>
+<p>Esto puede ser debido a que en el resto de cepas apareció una delección de esa región inicial, o puede ser debido a que se ha realizado una secuenciación diferente en las diferentes cepas que lleva a esa diferencia de tamaño.</p>
+<p>Otras regiones no conservadas que podemos destacar es la existencia de una delección entre los sitios <strong>653 y 668</strong> <em>(w/o gaps</em>) en todas las cepas menos en la cepa <em>Yongworl</em>. Igualmente, puede tratarse de una delección que ha aparecido en el resto de las cepas.</p>
+<img alt="../_images/Alineamiento1del.png" src="../_images/Alineamiento1del.png" />
+<p>También podemos encontrar diferentes deleciones y mutaciones de distinto tipo en la zona entre <strong>1539 - 1620</strong>,que es una de las más variables de la secuencia de esta  proteína.  Otra secuencia variable es la situada entre 776 y 827 pb. Puede que estas zonas pertenezcan a las partes más externas de la proteína,de ahí la gran variabilidad.</p>
+<img alt="../_images/alineamiento1776.png" src="../_images/alineamiento1776.png" />
+<p>Recalcar que las secuencias <strong>Wonju,Daejeon</strong> y <strong>Muju</strong> terminan antes que el resto de secuencias. Esto puede deberse a una pérdida del final de la proteína pero también puede deberse a que se emplearon diferentes métodos de amplificación y secuenciación de la proteína,ya que estas se tratan de las aisladas de pacientes humanos. La cepa Boryeong es la que más parte terminal de la secuencia ha perdido.</p>
+<img alt="../_images/Alineamiento1fin.png" src="../_images/Alineamiento1fin.png" />
+<p>La existencia de grandes regiones no conservadas y diferenciales entre las cepas tiene sentido,puesto que esta secuencia pertenece a una proteína antigénica que se encuentra en la membrana de la bacteria (por lo que está sometida a gran presión evolutiva) y que se emplea para distinguir las diferentes cepas de <em>O.tsutsugamushi</em>.</p>
+<p>Por otra parte,también podemos encontrar otras <strong>regiones conservadas</strong> entre las distintas cepas,aunque el predominio es de regiones no conservadas.  Destacar la existencia de la región entre la posición 367 y 606,donde hay un gran predominio de regiones conservadas.</p>
+<img alt="../_images/alineamiento1con.png" src="../_images/alineamiento1con.png" />
+<p>Podemos tomar parte de esta secuencia conservada para realizar una búsqueda en Pfam,que nos va a indicar que se trata de una proteína antigénica específica.</p>
+<img alt="../_images/Pfam1.png" src="../_images/Pfam1.png" />
+</div>
+<div class="section" id="eleccion-del-mejor-modelo-de-sustitucion-y-calculo-de-las-distancias-geneticas">
+<h2>3.3 Elección del mejor modelo de sustitución y cálculo de las distancias genéticas<a class="headerlink" href="#eleccion-del-mejor-modelo-de-sustitucion-y-calculo-de-las-distancias-geneticas" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>El cálculo de las distancias genéticas (el número de sustituciones acumuladas entre ellas desde que divergieron de un ancestro común) requiere de el empleo de un <strong>modelo de sustitución</strong> que nos permita estimar estas distancias teniendo en cuenta las sustituciones no observables que hayan podido aparecer.  La elección del modelo correcto nos va a permitir que nuestro árbol filogenético sea lo más fiable posible.</p>
+<p>Para ello MEGA nos permite calcular el modelo que mejor se adapte a nuestra secuencia  siguiendo los Criterios de Información Bayesianos y de Akaike (BIC y AIC):</p>
+<img alt="../_images/Tabla1.png" src="../_images/Tabla1.png" />
+<p>El modelo de sustitución más adecuado que podamos emplear en MEGA en este caso es el modelo <strong>Tamura-Nei (TN93)</strong> con una una distribución gamma asociada (G+) de 0.44.  Este modelo considera tres tasas de mutación; permite que las tasas de las transiciones (A-G C-T) sean distintas entre sí, pero mantiene la misma tasa para las transversiones.</p>
+<div class="admonition important">
+<p class="first admonition-title">Importante</p>
+<p class="last">Los autores del artículo no especifican el modelo empleado</p>
+</div>
+<p>Finalmente hemos obtenido las siguientes distancias:</p>
+<img alt="../_images/distancias.png" src="../_images/distancias.png" />
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../arboles/arboles.html" class="btn btn-neutral float-right" title="Construcción y análisis de árboles filogenéticos" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../secuencias/secuencias.html" class="btn btn-neutral" title="Secuencias biológicas" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Cristina Valle.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <script>
+    var versions_json_url = ''
+</script>
+
+<div class="rst-versions" data-toggle="rst-versions" role="note"
+     aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"></span>
+        
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+        <dl id="versionselector">
+            <dt>Other Versions</dt>
+        </dl>
+
+    </div>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="../_static/js/versions.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
